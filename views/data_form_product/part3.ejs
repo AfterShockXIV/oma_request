@@ -1,0 +1,234 @@
+
+<div
+  class="card-body"
+  style="padding-left: 15%; padding-right: 15%; padding-top: 2%"
+>
+
+  <input hidden id="sig_partthree" value="<%= data_partone.sigpart3 %>"> 
+  <div
+    class="card-body"
+    style="
+      border-radius: 20px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+    "
+  >
+    <!-- <h2 style="text-align: center; font-weight: bold;">Form for new product request</h2> -->
+    <br />
+    <button onclick="header_btn_show_three()" id="header_hide_three" class="btn btn-secondary header">Part 3: User Confirmation</button>
+    <button  onclick="header_btn_hide_three()" id="header_show_three" class="btn btn-secondary header">Part 3: User Confirmation</button>
+ <fieldset id="fieldset_set_three" >
+    <fieldset disabled> 
+        <fieldset class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <span>Date Option Confirmed</span>
+                <br />
+                <input
+                  type="date"
+                  name="datepartthree"
+                  style="border-radius: 10px"
+                  class="form-control form-control-sm"
+                  value="<%= data_partone.datepartthree %>"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <span>Options Confirmed</span>
+                <br />
+                <input type="text" name="O_review" style="width: 80%; padding: 2%; border-radius: 10px;"
+                class="form-control form-control-sm" value="<%= data_partone.o_confirmed %>">
+                
+                <!-- <select
+                  required
+                  style="border-radius: 10px"
+                  class="form-control"
+                  name="o_confirmed"
+                >
+                  <option checked value="<%= data_partone.o_confirmed%>">
+                    <%= data_partone.o_confirmed%>
+                  </option>
+                  <option value="">Please Select</option>
+                  <option value="Company">Company</option>
+                  <option value="Products">Products</option>
+                  <option value="Product price">Product price</option>
+                </select> -->
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <span>Need to test : <%= data_partone.test_three %></span>
+           
+              </div>
+            </div>
+
+           
+          </fieldset>
+        
+         </fieldset>
+         <fieldset>
+          <% if( data_partone.partthree_img  == "") {%> 
+              <div>
+                  <span>NO IMG</span>
+              </div>
+            
+        <% }else{ %> 
+        <span>Image</span>
+        <br>
+        <img style="width: 50%;height: 10%;" src="/assets/file_partthree/<%= data_partone.partthree_img %>"> 
+        <% } %> 
+
+        <% if( data_partone.partthree_pdf  == "") {%> 
+          <div>
+              <span>NO PDF file</span>
+          </div>
+        <% }else{ %>     
+            <div>
+                <br>                                    
+       <a href="/download_pdf_three/<%= data_partone.partthree_pdf %> "><button type="button" style="border-radius: 10px;"class="btn btn-danger" >Dowload PDF file</button></a> 
+            </div>
+        
+        <% } %> 
+      </fieldset>
+            <hr>
+
+
+          <div  id="sig_wait_three">
+            <span>Requestor Manager Checked</span>
+            <p>Status</p>
+            <div class="col-md-6">
+              <form action="/post_sig_partthree" method="POST" enctype="multipart/form-data">
+                <input hidden name="partthree_id" value="<%= data_partone.partthree_id %>">
+                <input hidden name="request_id" value="<%= data_partone.request_id %>"> 
+              <div class="form-group">
+           
+                <input type="radio" name="status" value="Pending review" />
+                Pending review
+
+                <input type="radio" name="status" value="Approve" /> Approve
+
+                <input type="radio" name="status" value="Disapproved" />
+                Disapproved
+              </div>
+            </div>
+
+            <div class="wrapper">
+              <canvas
+                id="signature-pad3"
+                name="canvas"
+                class="signature-pad"
+              ></canvas>
+            </div>
+            <input
+              hidden
+              type="text"
+              id="demo3"
+              name="sigpart3"
+              value=""
+            />
+            <div>
+              <br />
+              <button
+                type="button"
+                style="border-radius: 20px; width: 20%"
+                class="btn btn-secondary"
+                id="clear3"
+              >
+                Clear
+              </button>
+              <br />
+              <br />
+              <span>Comment</span>
+              <div style="padding-left: 1%" class="row">
+                <input
+                  type="text"
+                  name="comment"
+                  style="width: 80%; padding: 2%; border-radius: 10px"
+                  class="form-control form-control-sm"
+                  
+                />
+              </div>
+              <br />
+              <button
+                type="submit"
+                style="border-radius: 20px; width: 20%"
+                class="btn btn-primary"
+                id="save-jpeg3"
+              >
+                ตกลง
+              </button>
+            </form>
+
+
+            </div>
+          </div>
+          <div  id="sig_success_three">
+            <span>Manager Checked</span>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label>Status : <%= data_partone.status3 %></label>
+                </div>
+            </div>
+
+            <input hidden type="text" id="demo" name="sig_partone" value="">
+            <img style="width: 70%;" src="<%= data_partone.sigpart3 %>" />
+          
+            <div>                                 
+                <span>Comment</span>
+                    <div style="padding-left: 1%;" class="row">
+                        <input disabled type="text" name="comment" style="width: 80%;  border-radius: 10px;"
+                        class="form-control form-control-sm" value="<%= data_partone.comment_three %>">
+                    </div>    
+                <br>
+            </div>
+        </div>
+        </fieldset>
+      </fieldset>
+  <br>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  var canvas3 = document.getElementById("signature-pad3");
+
+  // Adjust canvas coordinate space taking into account pixel ratio,
+  // to make it look crisp on mobile devices.
+  // This also causes canvas to be cleared.
+  function resizeCanvas() {
+    // When zoomed out to less than 100%, for some very strange reason,
+    // some browsers report devicePixelRatio as less than 1
+    // and only part of the canvas is cleared then.
+    var ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas3.width = canvas3.offsetWidth * ratio;
+    canvas3.height = canvas3.offsetHeight * ratio;
+    canvas3.getContext("2d").scale(ratio, ratio);
+  }
+
+  window.onresize = resizeCanvas;
+  resizeCanvas();
+
+  var signaturePad3 = new SignaturePad(canvas3, {
+    backgroundColor: "rgb(255, 255, 255)", // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+  });
+  document.getElementById("save-jpeg3").addEventListener("click", function () {
+    if (signaturePad3.isEmpty()) {
+      document.getElementById("demo3").value = "";
+    } else {
+      var canvas3 = document.getElementById("signature-pad3");
+      var dataURL3 = canvas3.toDataURL();
+
+      document.getElementById("demo3").value = dataURL3;
+      x.innerText = dataURL3;
+
+      window.alert("sometext");
+    }
+  });
+  document.getElementById("clear3").addEventListener("click", function () {
+    signaturePad3.clear();
+  });
+</script>

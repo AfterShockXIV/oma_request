@@ -1,0 +1,137 @@
+ <div class="card-body " style="padding-left: 15%;padding-right: 15%;padding-top:3%;">
+        
+
+        <div class="card-body "
+        style="border-radius: 20px;background-color: rgb(255, 255, 255,0.952);box-shadow: 0 30px 50px rgba(0,0,0,.2);">
+           <!-- <h2 style="text-align: center; font-weight: bold;">Form for new product request</h2> -->
+            <br>
+
+            <fieldset>
+                <button class="btn btn-secondary header">Part 2: Procurement</button>
+                <form action="/post_part2" method="POST" enctype="multipart/form-data">
+                    <fieldset class="card-body">
+                        <input hidden name="parttwo_id" value="<%= data_partone.parttwo_id %>">
+                        <input hidden name="name_tp" value="<%= data_partone.name_tp %>">
+                        <input hidden name="request_id" value="<%= data_partone.request_id %>">
+                        <div class="row">
+                            <span >Procurement Officer</span>
+                            <div class="col-md-6">
+                               
+                                <div class="form-group">
+                                    <input required name="N_officer" type="text" style="border-radius: 10px;"
+                                        placeholder="Name" class="form-control form-control-sm">
+      
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+    
+                                    <input required name="S_officer" type="text" style="border-radius: 10px; "
+                                        placeholder="Surname" class="form-control form-control-sm">
+      
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Date Sent for Review</span>
+                                    <br>
+                                    <input type="date" name="dateparttwo" style="border-radius: 0px;"
+                                    class="form-control form-control-sm">
+
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Options for Review</span>
+                                    
+                                    <textarea required class="form-control" name="O_review" rows="5"
+                                                style="width: 100%;border-radius: 10px;"></textarea>
+                                </div>
+
+                            </div>
+                           
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>Image</span>
+                                        <div style="padding-left: 1%;" class="row">
+                                            <input   type="file" class="form-control form-control-sm" name="parttwo_img"
+                                                style="width: 100%;border-radius: 10px;">
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>PDF</span>
+                                                <input type="file" class="form-control" name="parttwo_pdf"
+                                                    style="width: 100%;border-radius: 10px;">
+                                    </div>
+                                </div>
+                                <br>
+                                <fieldset>
+                                    <button type="submit" style="border-radius: 10px;width: 10%;"
+                                    class="btn btn-primary" id="save-jpeg2_part2">ตกลง</button>
+                                </fieldset>
+                                 <br>
+                                 <br>
+                                
+                         
+
+                    </fieldset>
+                </form>
+            </fieldset>
+            <br>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var canvas2 = document.getElementById('signature-pad2');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas2.width = canvas2.offsetWidth * ratio;
+        canvas2.height = canvas2.offsetHeight * ratio;
+        canvas2.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad2 = new SignaturePad(canvas2, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg2').addEventListener('click', function () {
+        if (signaturePad2.isEmpty()) {
+            document.getElementById('demo2').value = "";
+        } else {
+            var canvas2 = document.getElementById("signature-pad2");
+            var dataURL2 = canvas2.toDataURL();
+
+            document.getElementById('demo2').value = dataURL2;
+            x.innerText = dataURL2;
+
+            window.alert("sometext");
+        }
+    });
+    document.getElementById('clear2').addEventListener('click', function () {
+        signaturePad2.clear();
+    });
+</script>

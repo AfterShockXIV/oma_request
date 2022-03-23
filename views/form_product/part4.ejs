@@ -1,0 +1,203 @@
+<div class="card-body " style="padding-left: 15%;padding-right: 15%;padding-top:2%;">
+<div class="card-body " style="border-radius: 20px;background-color: rgb(255, 255, 255,0.952);box-shadow: 0 30px 50px rgba(0,0,0,.2);">
+            <br>
+            <fieldset>
+                <button class="btn btn-secondary header">Part 4: Test Confirmation</button>
+                    <fieldset class="card-body">
+                    
+                        <form action="/post_part4" method="POST" enctype="multipart/form-data">
+                            <input  hidden name="request_id" value="<%= data_partone.request_id %>">
+                            <input  hidden name="partfour_id" value="<%= data_partone.partfour_id %>">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Person in charge</span>
+                                    <br>
+                                    <input type="text" name="Person" style="border-radius: 10px;"
+                                    class="form-control form-control-sm">
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Processing Time</span>
+                                    <br>
+                                    <input type="text" name="d_time" style="border-radius: 10px;"
+                                    class="form-control form-control-sm">
+
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-12">
+                                <div class="form-group">
+
+                                    <span>Test Result</span>
+                                    <br>
+                                    <input checked type="radio" name="test" value="Pass"> Pass
+                                    <br>
+                                    <input type="radio" name="test" value="Not Pass"> Not Pass
+                                    <input type="text" name="why" style="border-radius: 10px; "
+                                    placeholder="Why" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span>Image</span>
+                                    <br>
+                                    <div style="padding-left: 1%;" class="row">
+                                        <input  type="file" class="form-control form-control-sm" name="partfour_img"
+                                            style="width: 100%;border-radius: 10px;">
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <span>PDF</span>
+                                    <br>
+                                    <div style="padding-left: 1%;" class="row">
+                                        <input   type="file" class="form-control form-control-sm" name="partfour_pdf"
+                                            style="width: 100%;border-radius: 10px;">
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <fieldset>
+                                <button type="submit" style="border-radius: 10px;width: 10%;"
+                                class="btn btn-primary" id="save-jpeg4_part4">ตกลง</button>
+
+                            </fieldset>
+                        </form>
+                    </fieldset>
+            </fieldset>
+            <br>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var canvas4 = document.getElementById('signature-pad4');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas4.width = canvas4.offsetWidth * ratio;
+        canvas4.height = canvas4.offsetHeight * ratio;
+        canvas4.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad4 = new SignaturePad(canvas4, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg4').addEventListener('click', function () {
+        if (signaturePad4.isEmpty()) {
+            document.getElementById('demo4').value = "";
+        } else {
+            var canvas4 = document.getElementById("signature-pad4");
+            var dataURL4 = canvas4.toDataURL();
+
+            document.getElementById('demo4').value = dataURL4;
+            x.innerText = dataURL4;
+
+            window.alert("sometext");
+        }
+    });
+    document.getElementById('clear4').addEventListener('click', function () {
+        signaturePad4.clear();
+    });
+</script>
+<script type="text/javascript">
+    var canvas5 = document.getElementById('signature-pad5');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas5.width = canvas5.offsetWidth * ratio;
+        canvas5.height = canvas5.offsetHeight * ratio;
+        canvas5.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad5 = new SignaturePad(canvas5, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg5').addEventListener('click', function () {
+        if (signaturePad5.isEmpty()) {
+            document.getElementById('demo5').value = "";
+        } else {
+            var canvas5 = document.getElementById("signature-pad5");
+            var dataURL5 = canvas5.toDataURL();
+
+            document.getElementById('demo5').value = dataURL5;
+            x.innerText = dataURL5;
+
+            window.alert("sometext");
+        }
+    });
+    document.getElementById('clear5').addEventListener('click', function () {
+        signaturePad5.clear();
+    });
+</script>
+
+<script type="text/javascript">
+    var canvas6 = document.getElementById('signature-pad6');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas6.width = canvas6.offsetWidth * ratio;
+        canvas6.height = canvas6.offsetHeight * ratio;
+        canvas6.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad6 = new SignaturePad(canvas6, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg6').addEventListener('click', function () {
+        if (signaturePad6.isEmpty()) {
+            document.getElementById('demo6').value = "";
+        } else {
+            var canvas6 = document.getElementById("signature-pad6");
+            var dataURL6 = canvas6.toDataURL();
+
+            document.getElementById('demo6').value = dataURL6;
+            x.innerText = dataURL6;
+
+            window.alert("sometext");
+        }
+    });
+    document.getElementById('clear6').addEventListener('click', function () {
+        signaturePad6.clear();
+    });
+</script>

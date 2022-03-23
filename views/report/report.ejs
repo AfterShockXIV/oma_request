@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Report</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+        type="text/css">
+    <link href="/../../../../global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/layout.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/components.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/colors.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+
+    <!-- Core JS files -->
+    <script src="/../../../../global_assets/js/main/jquery.min.js"></script>
+    <script src="/../../../../global_assets/js/main/bootstrap.bundle.min.js"></script>
+    <script src="/../../../../global_assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    <script src="/../../../../global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script src="/../../../../global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script src="/../../../../global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script src="/../../../../global_assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="/../../../../global_assets/js/plugins/pickers/daterangepicker.js"></script>
+
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/takein.js"></script>
+    <script src="/../../../../global_assets/js/demo_pages/dashboard.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/streamgraph.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/sparklines.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/lines.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/areas.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/donuts.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/bars.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/progress.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/heatmaps.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/pies.js"></script>
+    <script src="/../../../../global_assets/js/demo_charts/pages/dashboard/light/bullets.js"></script>
+    <!-- /theme JS files -->
+
+
+    <script src="/../../../../global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="/../../../../global_assets/js/plugins/forms/selects/select2.min.js"></script>
+
+
+    <script src="/../../../../global_assets/js/demo_pages/datatables_advanced.js"></script>
+    <!-- /theme JS files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+    body {
+        font-size: 14px;
+        font-family: 'Prompt', sans-serif;
+        line-height: 25pt
+    }
+</style>
+<style>
+
+    .font_danger {
+        color: red;
+        font-weight: bold;
+    }
+    .font_ss {
+        color: rgb(63, 226, 23);
+        font-weight: bold;
+
+    }
+    .bg {
+        background-image: url("/assets/bg/new_bg.png");
+        background-repeat : no-repeat;	
+	    background-position :  top left; 		
+	    background-attachment: fixed;	
+    }
+
+
+    .header {
+        width: 100%;
+        border-radius: 20px;
+        font-size: 14px;
+        text-align: left;
+
+    }
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+    }
+    .signature-pad {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 200px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(0, 0, 0);
+
+    }
+    .table-size {
+        font-size: 14px;
+        text-align: left;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        height:80%;
+    }
+
+    /* .button {
+        font-size: 16px;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #e65100;
+        border-color: #e65100;
+    } */
+
+    tr:hover {background-color: rgba(252, 182, 135, 0.815);}
+    tr:nth-child(even) {background-color: #f2f2f2ec;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<body onload="showdata()">
+    <%- include ('../header.ejs') %>
+        <div class="card bg">
+            <div class="card-body " style="padding-left: 5%;padding-right: 5%;">
+
+                <div class="card-body"
+                    style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.855);box-shadow: 0 30px 50px rgba(0,0,0,.2);">
+
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                        <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                        <span class="dropdown-wrapper" aria-hidden="true"></span>
+                        <div class="datatable-scroll">
+                            <table style="height: 50vh;" class="table-size table datatable-show-all dataTable no-footer"
+                                id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                <thead>
+                                    <tr style="border-bottom:2px solid rgba(7, 7, 7, 0.301)" >
+                                        <th >ลำดับ</th>
+                                        <th>Action</th>
+                                        <th>Date Received</th>
+                                        <th>Request Topic</th>
+                                        <th>New or Existing</th>
+                                        <th>Category</th>
+                                        <th>Requestor</th>
+                                        <th>Target Days</th>
+                                        <th></th>
+                                        <th>Date Options Sent For Review</th>
+                                        <th>Reviewer</th>
+                                        <th>ZZPROJECT</th>
+                                        <th>Check PR SAP</th>
+                                    </tr>
+                                </thead>                            
+                                <tbody>
+                                <% data_partone.forEach((data, key)=> { %>
+                                        <tr >
+                                            <td class="text-center"><%= key+1 %></td>
+                                            <td><a href="/run_process_product/<%= data.request_id %>"><button type="button" class="btn btn-sm btn-success">Check Process</button></a></td>
+                                            <td><%= data.datepartone  %></td>
+                                            <td><%= data.name_tp %></td>
+                                            <td><%= data.option_one%></td>
+                                            <td><%= data.type %></td>
+                                            <td><%= data.name_n %>  <%= data.surname_s %> </td>
+                                            <td class="text-center"><%= data.target_day %></td>
+
+                                            <% if(data.sigpart1 != "" && data.date_diff <= data.target_day && data.date_diff > 0  ){ %> 
+                                            <td><h6><span class="badge badge-success">Success</span></h6></td>
+                                            <% }else if(data.sigpart1 != "" && data.date_diff > data.target_day ) { %> 
+                                                <td><h6><span class="badge badge-danger">Danger</span></h6></td>
+                                            <% }else if(data.sigpart1 === "" ){ %> 
+                                                <td><h6><span class="badge badge-warning">wait</span></h6></td>
+                                            <% } else {%>
+                                                <td><h6><span class="badge badge-warning">wait</span></h6></td>
+                                                <% } %>  
+                                            <td class="text-center"><%= data.add_date %></td>
+                                            <td><img style="width: 100px;height: 50px;" src="<%= data.sigpart1 %>"></td>
+                                            <td><%= data.ZZPROJECT %></td>   
+                                            <td><a href="/report_pr_sap/<%= data.ZZPROJECT %>"><button type="button" class="btn btn-sm btn-success">Check PR</button></a></td>   
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+       </body>
+</html>
+

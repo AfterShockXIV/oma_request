@@ -1,0 +1,276 @@
+<script src="/assets/js/javascrip_part_all/javascrip_partone.js"></script>
+
+<body onload="part_one()">
+    <div class="card-body " style="padding-left: 15%;padding-right: 15%;padding-top:5%;">
+        <div  class="card-body "
+        style="border-radius: 20px;background-color: rgba(255, 255,255,0.785);box-shadow: 0 30px 50px rgba(0,0,0,.2);">
+        <br>
+           
+            <h3 class="text-center <%=  class_font.ms %>">
+                <%= class_font.status_alert %>
+            </h3>
+            <fieldset  > 
+                <button onclick="header_btn_show()"  id="header_hide" class="btn btn-secondary header">Part 1: Requirements</button>
+                <button  onclick="header_btn_hide()" id="header_show" class="btn btn-secondary header">Part 1: Requirements</button>
+             
+               <fieldset id="fieldset_set">
+                    <fieldset disabled class="card-body" >
+                        <form action="/post_part1" method="POST" enctype="multipart/form-data">
+                        <div  class="row">
+                            <span >topic</span>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input required name="name_tp" type="text" style="border-radius: 10px;"
+                                        placeholder=" topic" class="form-control form-control-sm" value="<%= data_partone.name_tp%>">
+                                </div>
+                            </div>
+
+                            <span >Requestor</span>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input required name="name_n" type="text" style="border-radius: 10px;"
+                                        placeholder="Name" class="form-control form-control-sm" value="<%= data_partone.name_n %>">
+      
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+    
+                                    <input required name="surname_s" type="text" style="border-radius: 10px; "
+                                        placeholder="Surname" class="form-control form-control-sm" value="<%= data_partone.surname_s %>">
+      
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Department</span>
+                                    <br>
+
+                                    <select required style="border-radius: 10px;"
+                                    class="form-control" name="d_department" >
+                                    
+                                    <option checked value="<%= data_partone.d_department%>"><%= data_partone.d_department%></option>
+                                    <option value="Company"> Company </option>
+                                    <option value="Products"> Products </option>
+                                    <option value="Product price"> Product price </option>
+                            
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Date Request</span>
+                                    <br>
+                                    <input type="date" name="datepartone"
+                                    class="form-control form-control-sm" value="<%= data_partone.datepartone %>">
+
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">  
+                                <div class="form-group"> 
+
+                                    <span>Type</span>
+                                    <br>
+                                    <input checked type="radio"  name="type" value="<%= data_partone.type %>">
+                                    <label for=""><%= data_partone.type %></label>
+                                    <br>
+                                    <input type="radio" name="type" value="New material" >
+                                    <label for="">New material</label>
+
+                                    <input type="radio" name="type" value="New machine">
+                                    <label for="">New machine</label>
+
+                                    <input type="radio" name="type" value="spare part">
+                                    <label for="">spare part</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">  
+                                <div class="form-group"> 
+                                    
+                                    <span>Option</span>
+                                    <br>
+                                    <input checked type="radio"  name="option_one" value="<%= data_partone.option_one %>">
+                                    <label for=""><%= data_partone.option_one %></label>
+                                    <br>
+                                  
+                                    <input type="radio" name="option_one" value="New">
+                                    <label for="">New</label>
+                                    <input type="radio" name="option_one" value="Existing">
+                                    <label for="">Existing</label>
+
+                
+                                </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>Requirements</span>
+                                        <div class="row">
+                                            <input type="text" name="Requirements" style="width: 80%; padding: 2%; border-radius: 10px;"
+                                        class="form-control form-control-sm" value="<%= data_partone.Requirements %>">
+                                        </div>        
+                                    </div>
+
+                               
+                            
+                            </fieldset>
+                            <fieldset>
+                                <% if( data_partone.partone_img  == "") {%> 
+                                    <div>
+                                        <span>NO IMG</span>
+                                    </div>
+                                  
+                              <% }else{ %> 
+                              <span>Image</span>
+                              <br>
+                              <img style="width: 50%;height: 10%;" src="/assets/file_partone/<%= data_partone.partone_img %>"> 
+                              <% } %> 
+
+                              <% if( data_partone.partone_pdf  == "") {%> 
+                                <div>
+                                    <span>NO PDF file</span>
+                                </div>
+                              <% }else{ %>     
+                                  <div>
+                                      <br>                                    
+                             <a href="/download_pdf_one/<%= data_partone.partone_pdf %> "><button type="button" style="border-radius: 10px;"class="btn btn-danger" >Dowload PDF file</button></a> 
+                                  </div>
+                              
+                              <% } %> 
+                            </fieldset>
+                                
+                                <fieldset>
+                                    <div>
+                                        <button hidden type="submit" style="border-radius: 10px;width: 10%;"
+                                        class="btn btn-primary" id="save-jpeg_part1">ตกลง</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                     
+                            <hr>
+                            <input hidden id="sig_partone" value="<%= data_partone.sigpart1 %>"> 
+
+                            <div id="sig_wait">
+                                <span>Manager Checked</span>
+                                <p>Status</p>
+                                <form action="/post_sig_partone" method="POST" enctype="multipart/form-data">
+                                    <input hidden name="partone_id" value="<%= data_partone.partone_id %>">
+                                    <input hidden name="request_id" value="<%= data_partone.request_id %>">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                  
+                                        <input checked type="radio" name="status" value="Pending review"> Pending review
+                                       
+                                        <input type="radio" name="status" value="Approve"> Approve
+    
+                                        <input type="radio" name="status" value="Disapproved"> Disapproved
+                                       
+ 
+                                    </div>
+                                </div>
+    
+                                <div class="wrapper" id="sig_pad">
+                                    <canvas id="signature-pad" name="canvas" class="signature-pad"></canvas>
+                                </div>
+                                <input hidden type="text" id="demo" name="sig_partone" value="">
+                          
+                                <div>
+                                    <br>
+                                    <button type="button" style="border-radius: 20px;width: 20%;"
+                                        class="btn btn-secondary" id="clear">Clear</button>
+                                    <br>
+                                    <br>
+                                    <span>Comment</span>
+                                        <div style="padding-left: 1%;" class="row">
+                                            <input type="text" name="comment" style="width: 80%;  border-radius: 10px;"
+                                            class="form-control form-control-sm" value="<%= data_partone.comment %>">
+                                        </div>    
+                                    <br>
+                                    <button type="submit" style="border-radius: 20px;width:20%;"
+                                        class="btn btn-primary" id="save-jpeg" >ตกลง</button>
+                                </div>
+                            </form>  
+                            </div>
+
+                            <div id="sig_success">
+                                <span>Manager Checked</span>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Status : <%= data_partone.status %></label>
+                                    </div>
+                                </div>
+    
+                                <input hidden type="text" id="demo" name="sig_partone" value="">
+                                <img style="width: 70%;" src="<%= data_partone.sigpart1 %>" />
+                              
+                                <div>                                 
+                                    <span>Comment</span>
+                                        <div style="padding-left: 1%;" class="row">
+                                            <input disabled type="text" name="comment" style="width: 80%;  border-radius: 10px;"
+                                            class="form-control form-control-sm" value="<%= data_partone.comment %>">
+                                        </div>    
+                                    <br>
+                                   
+                                </div>
+                      
+                            </div>
+                            
+                        </fieldset>
+            </fieldset>
+            <br>
+        </div>
+
+    </div>
+</body>
+
+
+<script type="text/javascript">
+    var canvas = document.getElementById('signature-pad');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg').addEventListener('click', function () {
+        if (signaturePad.isEmpty()) {
+            document.getElementById('demo').value = "";
+        } else {
+            var canvas = document.getElementById("signature-pad");
+            var dataURL = canvas.toDataURL();
+
+            document.getElementById('demo').value = dataURL;
+            x.innerText = dataURL;
+
+            window.alert("sometext");
+        }
+    });
+    document.getElementById('clear').addEventListener('click', function () {
+        signaturePad.clear();
+    });
+</script>

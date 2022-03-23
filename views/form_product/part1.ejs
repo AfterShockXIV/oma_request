@@ -1,0 +1,255 @@
+
+    <div class="card-body " style="padding-left: 15%;padding-right: 15%;padding-top:5%;">
+        <!-- <div class="pointer pointer:after pointer:before" style="margin-left: -35%;"> </div>
+        <br> -->
+        <!-- <br>
+        <br> -->
+        <div class="card-body "
+        style="border-radius: 20px;background-color: rgba(255, 255, 255, 0.952);box-shadow: 0 30px 50px rgba(0,0,0,.2);">
+            <h2 style="text-align: center; font-weight: bold;">Form for new product request</h2> 
+            <br>
+            <fieldset>
+                <button class="btn btn-secondary header">Part 1: Requirements</button>
+                <form action="/post_part1" method="POST" enctype="multipart/form-data">
+
+                    <fieldset class="card-body">
+
+                        <div class="row">
+
+                            <span >Topic</span>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                    <input required name="name_tp" type="text" style="border-radius: 10px;"placeholder=" topic" class="form-control form-control-sm">
+      
+                                </div>
+                                
+                            </div>
+
+                            <span >Requestor</span>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input required name="name_n" type="text" style="border-radius: 10px;"
+                                        placeholder="Name" class="form-control form-control-sm">
+      
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+    
+                                    <input required name="surname_s" type="text" style="border-radius: 10px; "
+                                        placeholder="Surname" class="form-control form-control-sm">
+      
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Department</span>
+                                    <br>
+
+                                    <select required style="border-radius: 10px;"
+                                    class="form-control" name="d_department">
+                                    <option value=""> Please Select </option>
+                                    <option value="Nola Health"> Nola Health </option>
+                                    <option value="Marketing"> Marketing </option>
+                                    <option value="SAFETY"> SAFETY </option>
+                                    <option value="DCC"> DCC </option>
+                                    <option value="ACC"> ACC </option>
+                                    <option value="PD"> PD </option>
+                                    <option value="WH"> WH </option>
+                                    <option value="QA"> QA </option>
+                                    <option value="MA"> MA </option>
+                                    <option value="EN"> EN </option>
+                                    <option value="IT"> IT </option>
+                                    <option value="PU"> PU </option>
+                                    <option value="PL"> PL </option>
+                                    <option value="HR"> HR </option>
+                                    <option value="RD"> RD </option>
+                                    <option value="SC"> SC </option>
+                                    <option value="SBL HR"> SBL HR </option>
+                                    <option value="SBL PU"> SBL PU </option>
+                                    <option value="SBL MK"> SBL MK </option>
+                                    <option value="SBL SA"> SBL SA </option>
+                                    <option value="SBL ACC"> SBL ACC </option>
+                            
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Date Request</span>
+                                    <br>
+                                    <input type="date" name="datepartone" style="border-radius: 10px;"
+                                    class="form-control form-control-sm">
+
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">  
+                                <div class="form-group"> 
+
+                                    <span>Type</span>
+                                    <br>
+                                    <input checked type="radio" name="type" value="New material">
+                                    <label for="">New material</label>
+
+                                    <input type="radio" name="type" value="New machine">
+                                    <label for="">New machine</label>
+
+                                    <input type="radio" name="type" value="spare part">
+                                    <label for="">Spare part</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">  
+                                <div class="form-group"> 
+
+                                    <span>Option</span>
+                                    <br>
+                                    
+                                    <input checked type="radio" name="option_one" value="New">
+                                    <label for="">New</label>
+
+                                    <input type="radio" name="option_one" value="Existing">
+                                    <label for="">Existing</label>
+
+                
+                                </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>Requirements</span>
+                                        <div style="padding-left: 1%;" class="row">
+                                            <textarea required class="form-control" name="Requirements" rows="5"
+                                                style="width: 100%;border-radius: 10px;"></textarea>
+                                        </div>        
+                                    </div>
+
+                               
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>Image</span>
+                                                <input   type="file" class="form-control" name="partone_img"
+                                                    style="width: 100%;border-radius: 10px;">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>PDF</span>
+                                                <input type="file" class="form-control" name="partone_pdf"
+                                                    style="width: 100%;border-radius: 10px;">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span>E-mail Manager</span>
+                                                <input  required type="email" class="form-control" name="email_mg"
+                                                    style="width: 100%;border-radius: 10px;">
+                                    </div>
+                                </div>
+                                <br>
+                                <fieldset>
+                                    <div>
+                                        <button type="submit" style="border-radius: 10px;width: 10%;"
+                                        class="btn btn-primary" id="save-jpeg_part1">ตกลง</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                                <br>
+
+                            <!-- <span>Manager Checked</span>
+                            <p>Status</p>
+                            <form action="/post_sig_part1" method="POST" enctype="multipart/form-data">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="radio" name="status" value="Pending review"> Pending review
+                                   
+                                    <input type="radio" name="status" value="Approve"> Approve
+
+                                    <input type="radio" name="status" value="Disapproved"> Disapproved
+                                   
+                                    
+                                </div>
+                            </div>
+
+                            <div class="wrapper">
+                                <canvas id="signature-pad" name="canvas" class="signature-pad"></canvas>
+                            </div>
+                            <input hidden type="text" id="demo" name="sig_staff_takeout" value="">
+
+                            <div>
+                                <br>
+                                <button type="button" style="border-radius: 20px;width: 20%;"
+                                    class="btn btn-secondary" id="clear">Clear</button>
+                                <br>
+                                <br>
+                                <span>Comment</span>
+                                    <div style="padding-left: 1%;" class="row">
+                                            <textarea  class="form-control" name="comment" rows="5"
+                                                style="width: 50%;border-radius: 10px;"></textarea>
+                                    </div>    
+                                <br>
+
+                                <button type="submit" style="border-radius: 20px;width: 20%;"
+                                    class="btn btn-primary" id="save-jpeg" >ตกลง</button>
+                            </div>
+                        </form>   -->
+                            
+                    </fieldset>
+              
+            </fieldset>
+            <br>
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+    // var canvas = document.getElementById('signature-pad');
+
+    // // Adjust canvas coordinate space taking into account pixel ratio,
+    // // to make it look crisp on mobile devices.
+    // // This also causes canvas to be cleared.
+    // function resizeCanvas() {
+    //     // When zoomed out to less than 100%, for some very strange reason,
+    //     // some browsers report devicePixelRatio as less than 1
+    //     // and only part of the canvas is cleared then.
+    //     var ratio = Math.max(window.devicePixelRatio || 1, 1);
+    //     canvas.width = canvas.offsetWidth * ratio;
+    //     canvas.height = canvas.offsetHeight * ratio;
+    //     canvas.getContext("2d").scale(ratio, ratio);
+
+    // }
+
+    // window.onresize = resizeCanvas;
+    // resizeCanvas();
+
+    // var signaturePad = new SignaturePad(canvas, {
+    //     backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    // });
+    // document.getElementById('save-jpeg').addEventListener('click', function () {
+    //     if (signaturePad.isEmpty()) {
+    //         document.getElementById('demo').value = "";
+    //     } else {
+    //         var canvas = document.getElementById("signature-pad");
+    //         var dataURL = canvas.toDataURL();
+
+    //         document.getElementById('demo').value = dataURL;
+    //         x.innerText = dataURL;
+
+    //         window.alert("sometext");
+    //     }
+    // });
+    // document.getElementById('clear').addEventListener('click', function () {
+    //     signaturePad.clear();
+    // });
+</script>

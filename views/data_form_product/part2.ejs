@@ -1,0 +1,197 @@
+<script src="/assets/js/javascrip_part_all/javascrip_parttwo.js"></script> 
+
+<body >
+
+ 
+ <div class="card-body " style="padding-left: 15%;padding-right: 15%;padding-top:3%;">
+        <div class="card-body " style="border-radius: 20px;background-color: rgb(255, 255, 255);box-shadow: 0 30px 50px rgba(0,0,0,.2);">
+           <!-- <h2 style="text-align: center; font-weight: bold;">Form for new product request</h2> -->
+            <br>
+            <input hidden id="sig_parttwo" value="<%= data_partone.sigpart2 %>"> 
+            <fieldset>
+                <button  onclick="header_btn_show_two()" id="header_hide_two" class="btn btn-secondary header">Part 2: Procurement</button>
+                <button  onclick="header_btn_hide_two()" id="header_show_two" class="btn btn-secondary header">Part 2: Procurement</button>
+                <fieldset id="fieldset_set_two">
+                    <fieldset disabled class="card-body">
+                        <div  class="row">
+                            <span >Procurement Officer</span>
+                            <div>
+
+                            <div class="col-md-6">                              
+                                <div class="form-group">
+                                    <input required name="N_officer" type="text" style="border-radius: 10px;"
+                                        placeholder="Name" class="form-control form-control-sm" value="<%= data_partone.N_officer%>">     
+                                </div>                      
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input required name="S_officer" type="text" style="border-radius: 10px;"
+                                        placeholder="Surname" class="form-control form-control-sm" value="<%= data_partone.S_officer%>">    
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <span>Date Sent for Review</span>
+                                    <br>
+                                    <input type="date" name="dateparttwo" style="border-radius: 0px;"
+                                    class="form-control form-control-sm" value="<%= data_partone.dateparttwo%>">
+
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span>Options for Review</span>
+                                    <div class="row">
+                                        <input type="text" name="O_review" style="width: 80%; padding: 2%; border-radius: 10px;"
+                                    class="form-control form-control-sm" value="<%= data_partone.O_review %>">
+                                    </div>  
+                                </div>
+
+                            </div>
+                           
+                            </fieldset>
+                            <fieldset>
+                                <% if( data_partone.parttwo_img  == "") {%> 
+                                    <div>
+                                        <span>NO IMG</span>
+                                    </div>
+                                  
+                              <% }else{ %> 
+                              <span>Image</span>
+                              <br>
+                              <img style="width: 50%;height: 10%;" src="/assets/file_parttwo/<%= data_partone.parttwo_img %>"> 
+                              <% } %> 
+
+                              <% if( data_partone.parttwo_pdf  == "") {%> 
+                                <div>
+                                    <span>NO PDF file</span>
+                                </div>
+                              <% }else{ %>     
+                                  <div>
+                                      <br>                                    
+                             <a href="/download_pdf_two/<%= data_partone.parttwo_pdf %> "><button type="button" style="border-radius: 10px;"class="btn btn-danger" >Dowload PDF file</button></a> 
+                                  </div>
+                              
+                              <% } %> 
+                            </fieldset>
+                            <hr>          
+                           
+                            <fieldset id="sig_wait_two">
+                               
+                            <form action="/post_sig_parttwo" method="POST" enctype="multipart/form-data">      
+                                <input hidden name="partone_id" value="<%= data_partone.partone_id %>">
+                                <input hidden name="parttwo_id" value="<%= data_partone.parttwo_id %>">
+                                <input hidden name="request_id" value="<%= data_partone.request_id %>"> 
+                           
+                            <span>Manager Checked</span>
+                            <p>Status</p>
+                            <div class="col-md-6">
+                                <div class="form-group">
+        
+                                    <input type="radio" name="status" value="Pending review"> Pending review
+                                   
+                                    <input type="radio" name="status" value="Approve"> Approve
+
+                                    <input type="radio" name="status" value="Disapproved"> Disapproved
+                                   
+                                </div>
+                            </div>
+
+                            <div class="wrapper">
+                                <canvas id="signature-pad2" name="canvas" class="signature-pad"></canvas>
+                            </div>
+                            <input hidden type="text" id="demo2" name="sigpart2" value="">
+
+                            <div >
+                                <br>
+                                <button type="button" style="border-radius: 20px;width: 20%;"
+                                    class="btn btn-secondary" id="clear2">Clear</button>
+                                <br>
+                                <br>
+                                <span>Comment</span>
+                                <div style="padding-left: 1%;" class="row">
+                                    <div class="row">
+                                        <input type="text" name="comment" style="width: 80%; padding: 2%; border-radius: 10px;"
+                                    class="form-control form-control-sm">
+                                    </div>
+                                </div>    
+                            <br>
+                                <button type="submit" style="border-radius: 20px;width: 20%;"
+                                    class="btn btn-primary" id="save-jpeg2">ตกลง</button>
+                            </div>
+                        </form>
+                     
+                        </fieldset>
+
+                        <div  id="sig_success_two">
+                            <span>Manager Checked</span>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Status : <%= data_partone.status2 %></label>
+                                </div>
+                            </div>
+
+                            <input hidden type="text" id="demo" name="sig_partone" value="">
+                            <img style="width: 70%;" src="<%= data_partone.sigpart2 %>" />
+                          
+                            <div>                                 
+                                <span>Comment</span>
+                                    <div style="padding-left: 1%;" class="row">
+                                        <input disabled type="text" name="comment" style="width: 80%;  border-radius: 10px;"
+                                        class="form-control form-control-sm" value="<%= data_partone.comment_two %>">
+                                    </div>    
+                                <br>
+                            </div>
+                        </div>
+                    </fieldset>
+            </fieldset>
+            <br>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var canvas2 = document.getElementById('signature-pad2');
+
+    // Adjust canvas coordinate space taking into account pixel ratio,
+    // to make it look crisp on mobile devices.
+    // This also causes canvas to be cleared.
+    function resizeCanvas() {
+        // When zoomed out to less than 100%, for some very strange reason,
+        // some browsers report devicePixelRatio as less than 1
+        // and only part of the canvas is cleared then.
+        var ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas2.width = canvas2.offsetWidth * ratio;
+        canvas2.height = canvas2.offsetHeight * ratio;
+        canvas2.getContext("2d").scale(ratio, ratio);
+
+    }
+
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    var signaturePad2 = new SignaturePad(canvas2, {
+        backgroundColor: 'rgb(255, 255, 255)' // necessary for saving image as JPEG; can be removed is only saving as PNG or SVG
+    });
+    document.getElementById('save-jpeg2').addEventListener('click', function () {
+        if (signaturePad2.isEmpty()) {
+            document.getElementById('demo2').value = "";
+        } else {
+            var canvas2 = document.getElementById("signature-pad2");
+            var dataURL2 = canvas2.toDataURL();
+
+            document.getElementById('demo2').value = dataURL2;
+            x.innerText = dataURL2;
+
+            window.alert("sometext");
+        }
+    });
+    document.getElementById('clear2').addEventListener('click', function () {
+        signaturePad2.clear();
+    });
+</script>
